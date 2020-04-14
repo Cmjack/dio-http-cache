@@ -21,10 +21,6 @@ class CacheManager {
   }
 
   Future<CacheObj> _pullFromCache(String key, {String subKey}) async {
-    print("_pullFromCacheKey");
-    print(key);
-    print("_pullFromCacheSubKey");
-    print(subKey);
 
     key = _convertMd5(key);
     if (null != subKey) subKey = _convertMd5(subKey);
@@ -69,10 +65,6 @@ class CacheManager {
   }
 
   Future<bool> pushToCache(CacheObj obj) {
-    print("_pushToCacheKey");
-    print(obj.key);
-    print("_pushToCacheSubKey");
-    print(obj.subKey);
 
     obj.key = _convertMd5(obj.key);
     if (null != obj.subKey) obj.subKey = _convertMd5(obj.subKey);
