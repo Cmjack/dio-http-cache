@@ -117,6 +117,9 @@ class DiskCacheStore extends BaseCacheStore {
 
   @override
   Future<CacheObj> getCacheObj(String key, {String subKey}) async {
+    print("getCacheObj");
+    print(key);
+
     var db = await _database;
     if (null == db) return null;
     var where = "$_columnKey=\"$key\"";
@@ -128,6 +131,8 @@ class DiskCacheStore extends BaseCacheStore {
 
   @override
   Future<bool> setCacheObj(CacheObj obj) async {
+    print("getCacheObj");
+    print(obj.key);
     var db = await _database;
     if (null == db) return false;
     var content = await _encryptCacheStr(obj.content);
